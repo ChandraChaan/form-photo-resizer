@@ -4,6 +4,10 @@ Resizes a photo, signature or scanned document to the pixel size and KB limits o
 
 For students and job seekers who are told "photo must be 20 to 50 KB, 200 x 230 px" five minutes before the last date.
 
+<img src="docs/start.png" width="320" alt="Start screen with form presets, KB and pixel limits, and a dashed photo slot">
+
+<sub>After you resize, the result sits in a photo slot labelled with its exact pixel size, with a meter showing where the file landed in the allowed KB band.</sub>
+
 ## What it does
 
 - You choose an image, type the limits (or pick a starting point), and press Resize.

@@ -28,7 +28,13 @@ Uint8List flatPng(int w, int h) {
 
 void main() {
   group('exact size presets', () {
-    const preset = Preset(name: 'p', minKb: 20, maxKb: 50, width: 200, height: 230);
+    const preset = Preset(
+      name: 'p',
+      minKb: 20,
+      maxKb: 50,
+      width: 200,
+      height: 230,
+    );
 
     test('output has exact pixels and size within limits', () {
       final r = resizeToPresetSync(noisyPng(900, 700), preset);
@@ -57,8 +63,13 @@ void main() {
     });
 
     test('impossible limits report cannotFit instead of breaking pixels', () {
-      const impossible =
-          Preset(name: 'x', minKb: 1, maxKb: 1, width: 1000, height: 1000);
+      const impossible = Preset(
+        name: 'x',
+        minKb: 1,
+        maxKb: 1,
+        width: 1000,
+        height: 1000,
+      );
       final r = resizeToPresetSync(noisyPng(1200, 1200), impossible);
       expect(r.status, ResizeStatus.cannotFit);
     });
@@ -83,7 +94,13 @@ void main() {
   });
 
   test('transparent PNG becomes white, not black', () {
-    const preset = Preset(name: 'p', minKb: 1, maxKb: 50, width: 64, height: 64);
+    const preset = Preset(
+      name: 'p',
+      minKb: 1,
+      maxKb: 50,
+      width: 64,
+      height: 64,
+    );
     final r = resizeToPresetSync(noisyPng(64, 64, alpha: true), preset);
     final out = img.decodeJpg(r.bytes!)!;
     final px = out.getPixel(32, 32);

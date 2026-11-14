@@ -36,13 +36,13 @@ class ResizeResult {
     required int quality,
     required bool padded,
   }) : this._(
-          ResizeStatus.ok,
-          bytes: bytes,
-          width: width,
-          height: height,
-          quality: quality,
-          padded: padded,
-        );
+         ResizeStatus.ok,
+         bytes: bytes,
+         width: width,
+         height: height,
+         quality: quality,
+         padded: padded,
+       );
 
   final ResizeStatus status;
   final Uint8List? bytes;
@@ -77,12 +77,15 @@ class _Message {
   final Preset preset;
 }
 
-ResizeResult _resizeMessage(_Message m) => resizeToPresetSync(m.input, m.preset);
+ResizeResult _resizeMessage(_Message m) =>
+    resizeToPresetSync(m.input, m.preset);
 
 /// Synchronous version, used by tests and by [resizeToPreset].
 ResizeResult resizeToPresetSync(Uint8List input, Preset preset) {
   final decoded = img.decodeImage(input);
-  if (decoded == null) return const ResizeResult.failure(ResizeStatus.unreadable);
+  if (decoded == null) {
+    return const ResizeResult.failure(ResizeStatus.unreadable);
+  }
 
   var image = img.bakeOrientation(decoded);
   image = _flattenOnWhite(image);

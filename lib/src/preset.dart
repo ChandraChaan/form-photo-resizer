@@ -11,8 +11,10 @@ class Preset {
     this.width,
     this.height,
     this.note,
-  }) : assert((width == null) == (height == null),
-            'width and height must both be set or both be null');
+  }) : assert(
+         (width == null) == (height == null),
+         'width and height must both be set or both be null',
+       );
 
   final String name;
   final int minKb;
@@ -29,15 +31,14 @@ class Preset {
     int? maxKb,
     int? Function()? width,
     int? Function()? height,
-  }) =>
-      Preset(
-        name: name ?? this.name,
-        minKb: minKb ?? this.minKb,
-        maxKb: maxKb ?? this.maxKb,
-        width: width != null ? width() : this.width,
-        height: height != null ? height() : this.height,
-        note: note,
-      );
+  }) => Preset(
+    name: name ?? this.name,
+    minKb: minKb ?? this.minKb,
+    maxKb: maxKb ?? this.maxKb,
+    width: width != null ? width() : this.width,
+    height: height != null ? height() : this.height,
+    note: note,
+  );
 
   @override
   String toString() =>
