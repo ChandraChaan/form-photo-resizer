@@ -38,7 +38,7 @@ flutter test
 
 Web build served from GitHub Pages: https://chandrachaan.github.io/form-photo-resizer/
 
-Android: download the APK from the [Releases](https://github.com/ChandraChaan/form-photo-resizer/releases) page. The APK is signed with the debug key, so Android will ask you to allow installing from outside the Play Store.
+Android: download the APK from the [Releases](https://github.com/ChandraChaan/form-photo-resizer/releases) page. The APK is signed with the debug key, so Android will ask you to allow installing from outside the Play Store. Its only permissions are storage ones (write access is limited to Android 9 and older) so it can save the resized file; internet access is removed from the manifest.
 
 ## Project layout
 
